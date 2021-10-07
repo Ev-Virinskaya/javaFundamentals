@@ -1,6 +1,5 @@
 package fundamentals.mainTasks;
 
-import java.util.Arrays;
 import java.util.Scanner;
 
 public class ThirdTaskRandomNumbers {
@@ -16,6 +15,8 @@ public class ThirdTaskRandomNumbers {
         }
         System.out.println();
         System.out.println("Result in row: ");
-        System.out.println(Arrays.toString(array));
+        for (int number : array) {
+            System.out.print(number + " ");
+        }
     }
 }
