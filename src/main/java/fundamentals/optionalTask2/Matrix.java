@@ -82,23 +82,20 @@ public class Matrix {
         int sum = 0;
 
         for (int[] array : matrix) {
-            int firstIndex = 0;
+            int index = 0;
 
-            while (array[firstIndex] < 0 && firstIndex < array.length - 2) {
-                firstIndex++;
+            while (array[index] < 0 && index < array.length - 2) {
+                index++;
             }
-            if (firstIndex < array.length - 2) {
-                firstIndex++;
-                int secondIndex = firstIndex;
+            if (index < array.length - 2) {
+                index++;
 
-                while (secondIndex < array.length - 1 && array[secondIndex] < 0) {
-                    secondIndex++;
+                while (index < array.length - 1 && array[index] < 0) {
+                    sum += array[index];
+                    index++;
                 }
-
-                if (array[secondIndex] >= 0) {
-                    for (int i = firstIndex; i < secondIndex; i++) {
-                        sum += array[i];
-                    }
+                if(array[index] < 0){
+                    sum = 0;
                 }
             }
         }
