@@ -1,5 +1,7 @@
 package fundamentals.optionalTask2;
 
+
+import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -19,8 +21,10 @@ public class Matrix {
         }
 
         print(matrix);
-        print(sort(matrix));
-        System.out.println("Max amount of decreasing numbers in a row: " + maxAmountDecreasing(matrix));
+        print(firstSort(matrix));
+        System.out.println("Max amount of decreasing numbers in a row: " + secondMaxAmountDecreasing(matrix));
+
+        System.out.println("Sum of numbers: " + thirdSumElements(matrix));
     }
 
     public static void print(int[][] matrix) {
@@ -33,7 +37,7 @@ public class Matrix {
         System.out.println();
     }
 
-    public static int[][] sort(int[][] matrix) {
+    public static int[][] firstSort(int[][] matrix) {
         System.out.println("Set column number from 0 to " + (matrix.length - 1) + " for sorting: ");
         Scanner sc = new Scanner(System.in);
         int number = sc.nextInt();
@@ -52,7 +56,7 @@ public class Matrix {
         return matrix;
     }
 
-    public static int maxAmountDecreasing(int[][] matrix) {
+    public static int secondMaxAmountDecreasing(int[][] matrix) {
         int amount = 0;
         for (int[] ints : matrix) {
             int amountTemp = 1;
@@ -68,6 +72,38 @@ public class Matrix {
             amount = Math.max(amount, amountTemp);
 
         }
+        print(matrix);
         return amount;
+
     }
+
+    public static int thirdSumElements(int[][] matrix) {
+
+        int sum = 0;
+
+        for (int[] array : matrix) {
+            int firstIndex = 0;
+
+            while (array[firstIndex] < 0 && firstIndex < array.length - 2) {
+                firstIndex++;
+            }
+            if (firstIndex < array.length - 2) {
+                firstIndex++;
+                int secondIndex = firstIndex;
+
+                while (secondIndex < array.length - 1 && array[secondIndex] < 0) {
+                    secondIndex++;
+                }
+
+                if (array[secondIndex] >= 0) {
+                    for (int i = firstIndex; i < secondIndex; i++) {
+                        sum += array[i];
+                    }
+                }
+            }
+        }
+        return sum;
+    }
+
+
 }
