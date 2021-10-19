@@ -1,7 +1,6 @@
 package fundamentals.optionalTask2;
 
 
-import java.util.Arrays;
 import java.util.Random;
 import java.util.Scanner;
 
@@ -21,10 +20,12 @@ public class Matrix {
         }
 
         print(matrix);
-        print(firstSort(matrix));
-        System.out.println("Max amount of decreasing numbers in a row: " + secondMaxAmountDecreasing(matrix));
+        //  print(firstSort(matrix));
+        //System.out.println("Max amount of decreasing numbers in a row: " + secondMaxAmountDecreasing(matrix));
+        // System.out.println("Sum of numbers: " + thirdSumElements(matrix));
+        System.out.println("Matrix without max digit: ");
+        print(fourthDeleteRowColumnMatrix(matrix));
 
-        System.out.println("Sum of numbers: " + thirdSumElements(matrix));
     }
 
     public static void print(int[][] matrix) {
@@ -72,7 +73,6 @@ public class Matrix {
             amount = Math.max(amount, amountTemp);
 
         }
-        print(matrix);
         return amount;
 
     }
@@ -89,17 +89,51 @@ public class Matrix {
             }
             if (index < array.length - 2) {
                 index++;
-
+                int subSum = 0;
                 while (index < array.length - 1 && array[index] < 0) {
-                    sum += array[index];
+                    subSum += array[index];
                     index++;
-                }
-                if(array[index] < 0){
-                    sum = 0;
+                    if (array[index] < 0) {
+                        sum += 0;
+                    } else {
+                        sum += subSum;
+                    }
                 }
             }
         }
         return sum;
+    }
+
+    public static int[][] fourthDeleteRowColumnMatrix(int[][] matrix) {
+        int amountRowColumn = 1;
+        int[][] newMatrix = new int[matrix.length - amountRowColumn][matrix.length - amountRowColumn];
+        int maxElement = 0;
+        int indexRow = 0;
+        int indexColumn = 0;
+        for (int i = 0; i < matrix.length; i++) {
+            for (int j = 0; j < matrix[0].length; j++) {
+                if (maxElement < matrix[i][j]) {
+                    maxElement = matrix[i][j];
+                    indexRow = i;
+                    indexColumn = j;
+                }
+            }
+        }
+
+        for (int i = 0; i < newMatrix.length; i++) {
+            if (i < indexRow) {
+                System.arraycopy(matrix[i], 0, newMatrix[i], 0, indexColumn);
+                System.arraycopy(matrix[i], indexColumn + 1, newMatrix[i], indexColumn, matrix.length - 1 - indexColumn);
+            } else {
+                System.arraycopy(matrix[i + 1], 0, newMatrix[i], 0, indexColumn);
+                System.arraycopy(matrix[i + 1], indexColumn + 1, newMatrix[i], indexColumn, matrix.length - 1 - indexColumn);
+            }
+        }
+        System.out.println("indexRow: " + indexRow);
+        System.out.println("indexColumn: "+ indexColumn);
+        System.out.println("maxElement: " + maxElement);
+
+        return newMatrix;
     }
 
 
