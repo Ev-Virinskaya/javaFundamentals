@@ -105,8 +105,8 @@ public class Matrix {
     }
 
     public static int[][] fourthDeleteRowColumnMatrix(int[][] matrix) {
-        int amountRowColumn = 1;
-        int[][] newMatrix = new int[matrix.length - amountRowColumn][matrix.length - amountRowColumn];
+
+
         int maxElement = 0;
         int indexRow = 0;
         int indexColumn = 0;
@@ -119,7 +119,7 @@ public class Matrix {
                 }
             }
         }
-
+        int[][] newMatrix = new int[matrix.length - 1][matrix.length - 1];
         for (int i = 0; i < newMatrix.length; i++) {
             if (i < indexRow) {
                 System.arraycopy(matrix[i], 0, newMatrix[i], 0, indexColumn);
@@ -130,7 +130,7 @@ public class Matrix {
             }
         }
         System.out.println("indexRow: " + indexRow);
-        System.out.println("indexColumn: "+ indexColumn);
+        System.out.println("indexColumn: " + indexColumn);
         System.out.println("maxElement: " + maxElement);
 
         return newMatrix;

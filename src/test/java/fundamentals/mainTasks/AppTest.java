@@ -67,23 +67,4 @@ public class AppTest {
         int[][] actualMatrix = Matrix.fourthDeleteRowColumnMatrix(inputMatrix);
         Assertions.assertArrayEquals(expectedMatrix, actualMatrix);
     }
-
-    @Test
-    public void shouldDeleteAllRowsColumnsWithMaxNumber() {
-        int[][] inputMatrix =
-                        {{9, -6, -6, 4, -6, 6},
-                        {-5, 2, -5, 4, -6, 2},
-                        {-5, -2, -4, 1, -1, 0},
-                        {-9, 7, 4, 9, -2, -7},
-                        {8, -2, 5, -4, 4, -5},
-                        {4, -9, 4, -9, -9, 8}};
-        int[][] expectedMatrix =
-                        {{2, -5, -6, 2},
-                        {-2, -4, -1, 0},
-                        {-2, 5, 4, -5},
-                        {-9, 4, -9, 8}};
-
-        int[][] actualMatrix = Matrix.fourthDeleteRowColumnMatrix(inputMatrix);
-        Assertions.assertArrayEquals(expectedMatrix, actualMatrix);
-    }
 }
