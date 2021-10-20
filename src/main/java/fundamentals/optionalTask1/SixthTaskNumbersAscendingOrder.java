@@ -8,7 +8,6 @@ public class SixthTaskNumbersAscendingOrder {
         int indexNumber = -1;
         for (int i = 0; i < args.length; i++) {
             char[] chars = args[i].toCharArray();
-            Arrays.sort(chars);
 
             for (int j = 0; j < chars.length - 1; j++) {
                 if (chars[j] < chars[j + 1]) {
