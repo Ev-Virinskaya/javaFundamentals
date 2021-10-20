@@ -6,11 +6,11 @@ public class FifthTaskFindEvenNumbers {
         int countEvenNumbers = 0;
         int countNumbersEqualEvenOdd = 0;
         for (String arg : args) {
-            char[] chars = arg.toCharArray();
+            String[] chars = arg.split("");
             int countEvenDigits = 0;
             int countOddDigits = 0;
-            for (char aChar : chars) {
-                if (aChar % 2 == 0) {
+            for (String aChar : chars) {
+                if (Integer.parseInt(aChar) % 2 == 0) {
                     countEvenDigits++;
                 } else {
                     countOddDigits++;
