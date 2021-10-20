@@ -1,7 +1,5 @@
 package fundamentals.optionalTask1;
 
-import java.util.Arrays;
-
 public class SixthTaskNumbersAscendingOrder {
     public static void main (String[] args) {
 
