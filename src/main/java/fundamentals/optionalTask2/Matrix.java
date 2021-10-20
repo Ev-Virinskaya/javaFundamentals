@@ -20,9 +20,9 @@ public class Matrix {
         }
 
         print(matrix);
-        //  print(firstSort(matrix));
-        //System.out.println("Max amount of decreasing numbers in a row: " + secondMaxAmountDecreasing(matrix));
-        // System.out.println("Sum of numbers: " + thirdSumElements(matrix));
+        print(firstSort(matrix));
+        System.out.println("Max amount of decreasing numbers in a row: " + secondMaxAmountDecreasing(matrix));
+        System.out.println("Sum of numbers: " + thirdSumElements(matrix));
         System.out.println("Matrix without max digit: ");
         print(fourthDeleteRowColumnMatrix(matrix));
 
@@ -37,6 +37,7 @@ public class Matrix {
         }
         System.out.println();
     }
+    
 
     public static int[][] firstSort(int[][] matrix) {
         System.out.println("Set column number from 0 to " + (matrix.length - 1) + " for sorting: ");
@@ -56,6 +57,7 @@ public class Matrix {
         }
         return matrix;
     }
+    
 
     public static int secondMaxAmountDecreasing(int[][] matrix) {
         int amount = 0;
@@ -76,6 +78,7 @@ public class Matrix {
         return amount;
 
     }
+    
 
     public static int thirdSumElements(int[][] matrix) {
 
@@ -103,6 +106,8 @@ public class Matrix {
         }
         return sum;
     }
+    
+    
 
     public static int[][] fourthDeleteRowColumnMatrix(int[][] matrix) {
 
@@ -129,12 +134,6 @@ public class Matrix {
                 System.arraycopy(matrix[i + 1], indexColumn + 1, newMatrix[i], indexColumn, matrix.length - 1 - indexColumn);
             }
         }
-        System.out.println("indexRow: " + indexRow);
-        System.out.println("indexColumn: " + indexColumn);
-        System.out.println("maxElement: " + maxElement);
-
         return newMatrix;
     }
-
-
 }
