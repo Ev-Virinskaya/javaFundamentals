@@ -23,7 +23,7 @@ public class FourthTaskMinAmountSymbol {
         int indexNumberMinSymbol = 0;
         for (int k = 0; k < counts.length; k++) {
 
-            if (counts[k] > counts[indexNumberMinSymbol]) {
+            if (counts[k] > counts[indexNumberMinSymbol] && counts[k] < 100) {
                 indexNumberMinSymbol = k;
             }
         }

@@ -37,7 +37,7 @@ public class Matrix {
         }
         System.out.println();
     }
-    
+
 
     public static int[][] firstSort(int[][] matrix) {
         System.out.println("Set column number from 0 to " + (matrix.length - 1) + " for sorting: ");
@@ -57,7 +57,7 @@ public class Matrix {
         }
         return matrix;
     }
-    
+
 
     public static int secondMaxAmountDecreasing(int[][] matrix) {
         int amount = 0;
@@ -78,36 +78,34 @@ public class Matrix {
         return amount;
 
     }
-    
+
+
 
     public static int thirdSumElements(int[][] matrix) {
-
         int sum = 0;
-
-        for (int[] array : matrix) {
+        for (int[] array: matrix) {
             int index = 0;
-
-            while (array[index] < 0 && index < array.length - 2) {
+            while (array[index] < 0) {
                 index++;
             }
-            if (index < array.length - 2) {
+
+            int subSum = 0;
+
+            while (array[index] >= 0 && index < array.length - 2) {
                 index++;
-                int subSum = 0;
-                while (index < array.length - 1 && array[index] < 0) {
-                    subSum += array[index];
-                    index++;
-                    if (array[index] < 0) {
-                        sum += 0;
-                    } else {
-                        sum += subSum;
-                    }
-                }
+            }
+
+            while (array[index] < 0 && index < array.length - 1) {
+                subSum += array[index];
+                index++;
+            }
+            if (array[index] >= 0) {
+                sum += subSum;
             }
         }
         return sum;
     }
-    
-    
+
 
     public static int[][] fourthDeleteRowColumnMatrix(int[][] matrix) {
 
